@@ -14,9 +14,11 @@ pip install aiohttp_route
 File structure:
 
 .
-└── src
-     ├ views.py
-     └ run.py
+
+├ views.py
+
+└ run.py
+
 
 `run.py`:
 
@@ -42,16 +44,45 @@ def handler(request):
     return web.HTTPNoContent()
 ```
 
-## With name spaces
+### Single File
 
 File structure:
 
 .
-└── src
-     └ my_app
-         ├ __init__.py
-         ├ views.py
-         └ run.py
+
+└ run.py
+
+`run.py`:
+
+```py
+from aiohttp import web
+from aiohttp_route import route, router
+
+
+@route('GET', '/')
+def handler(request):
+    return web.HTTPNoContent()
+
+app = web.Application()
+routes = router(app, ['run'])
+web.run_app(app, host='127.0.0.1', port=8080)
+```
+
+
+### With namespaces
+
+File structure:
+
+.
+
+└ my_app
+
+    ├ __init__.py
+
+    ├ views.py
+
+    └ run.py
+
 
 `run.py`:
 
@@ -76,3 +107,21 @@ File structure:
  def handler(request):
      return web.HTTPNoContent()
  ```
+
+### Newstyle view functions
+
+With
+
+File structure and `run.py` remain the same.
+
+`views.py`
+
+```py
+from aiohttp import web
+from aiohttp_route import route
+
+
+@route('GET', '/{uid}', newstyle=True)
+def handler(request, uid):
+    return web.HTTPNoContent()
+```
