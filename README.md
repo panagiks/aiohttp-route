@@ -1,5 +1,5 @@
 # aiohttp-route
-`@route` decorator for aiohttp.web that actually needs no singletons
+`@route` decorator for aiohttp.web that needs no global variables
 
 ## Install
 

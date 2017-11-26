@@ -3,10 +3,10 @@ from setuptools import setup
 
 setup(
     name='aiohttp-route',
-    version='0.0.1',
+    version='0.0.2',
     description=("@route decorator for aiohttp.web"),
     long_description=(
-        "@route decorator for aiohttp.web that actually needs no singletons"
+        "@route decorator for aiohttp.web that needs no global variables"
     ),
     classifiers=[
         'License :: OSI Approved :: MIT License',
