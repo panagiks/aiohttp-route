@@ -110,7 +110,8 @@ File structure:
 
 ### Newstyle view functions
 
-With
+The `newstyle` parameter instructs `aiohttp_route` to pass url path variables as
+call variables to the view function.
 
 File structure and `run.py` remain the same.
 
